@@ -1,17 +1,23 @@
-# Parse REST API for .NET
+# Parse Client REST API for .NET
 
-A simple C# wrapper for the Parse REST API, which you can learn about at https://parse.com/docs/rest.
-Parse has a .NET SDK, but unfortunately it "requires Visual Studio 2012 or Xamarin Studio and targets .NET 4.5 applications, Windows Store apps, Windows Phone 8 apps, and Xamarin.iOS 6.3+ or Xamarin.Android 4.7+ apps."
-If you want to target .NET 4.0 or lower, want to use VS2010 or lower, want to build for Windows Phone 7, or want to develop on a Windows 7 machine, you'll need to use the REST API.
+This is an update of the simple C# wrapper for the Parse REST API, based on the old "Parse REST API for .NET" (https://github.com/aldenquimby/parse-csharp) which you can learn about at https://parse.com/docs/rest.
+
+This update supplies the extension to use any Parse Server instance.
+
+Parse Community supplied a an SDK for .NET, but unfortunately it is extremely hard to be used in norma .NET framework applications.
+
+If you want to target .NET 4.7 or lower, or want to develop on a Windows 7, 8 or 10 machine, you'll need to use the REST API.
 
 ## Examples 
-(taken from https://raw.github.com/cfedersp/Parse-for-.NET for now)
+Coming soon
 
 ### Parse Object Creation
 
-	Parse.ParseClient myClient = new Parse.ParseClient("myappid", "mysecretkey");
-	Parse.ParseObject myObject = myClient.CreateObject("MyClass", new { foo = "bar" });
-	Dictionary<String,String> allObjects = myClient.GetObjectsWithQuery("MyClass", new { foo = "bar" });
+	Parse.ParseClient myClient = new Parse.ParseClient("myappid", "mysecretkey", "my serverurl");
+	MyParseObject myParseObject = new MyParseObject("field1value", "field2value");
+	var result = myClient.CreateObject(myParseObject).Result;
+	
+	Dictionary<String,String> allObjects = myClient.GetObjectsWithQuery("MyParseObject");
     
 ### Parse File Creation
 	ParseFile file = new ParseFile("c:\path\to\file.txt");
