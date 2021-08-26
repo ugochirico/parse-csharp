@@ -12,6 +12,7 @@ namespace Parse.Api.Tests
         private ParseRestClient _client;
 
         // fill these fields in to run all tests
+        private const string SERVER_URL = "";
         private const string APP_ID = "";
         private const string REST_API_KEY = "";
         private const string VALID_USER_ID1 = "";
@@ -22,7 +23,7 @@ namespace Parse.Api.Tests
         [SetUp]
         public void Setup()
         {
-            _client = new ParseRestClient(APP_ID, REST_API_KEY);
+            _client = new ParseRestClient(APP_ID, REST_API_KEY, SERVER_URL);
         }
 
         [Test]
