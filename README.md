@@ -1,6 +1,6 @@
 # Parse Client for .NET
 
-This is an update of the simple C# wrapper for the Parse REST API, based on the old "Parse REST API for .NET" (https://github.com/aldenquimby/parse-csharp) which you can learn about at https://parse.com/docs/rest.
+This is an update of the simple C# wrapper for the Parse REST API, based on the old "Parse REST API for .NET" (https://github.com/aldenquimby/parse-csharp)
 
 This update supplies the extension to use any Parse Server instance.
 
