@@ -42,8 +42,8 @@ section of the REST API documentation.
     
 **Less Than Inclusive/Exclusive and Greater Than Inclusive/Exclusive**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
+    var results = parseClient.GetObjects<Computer>(new
     {
         Price = new Constraint(lessThan: 1500),
         NegativeReviews = new Constraint(lessThanOrEqualTo: 2),
@@ -53,8 +53,8 @@ section of the REST API documentation.
 
 **Not Equal To**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
+    var results = parseClient.GetObjects<Computer>(new
     {
         Brand = new Constraint(notEqualTo: "HP")
     });
@@ -62,7 +62,7 @@ section of the REST API documentation.
 **In List**
 
     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var results = parseClient.GetObjects<Computer>(new
     {
         Brand = new Constraint(@in: new string[3] {"Apple", "Dell", "IBM"})
     });
@@ -70,7 +70,7 @@ section of the REST API documentation.
 **Not In List**
 
     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var results = parseClient.GetObjects<Computer>(new
     {
         Brand = new Constraint(notIn: new string[3] {"Apple", "Dell", "IBM"})
     });
@@ -78,7 +78,7 @@ section of the REST API documentation.
 **Value Does or Does Not Exist**
 
     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var results = parseClient.GetObjects<Computer>(new
     {
         PCIExpress = new Constraint(exists: true)
     });
@@ -89,7 +89,7 @@ Used to perform more complex queries across multiple Parse objects. The example 
 Parse-for-.Net's Constraint class, based on the $select example on the following page: [https://parse.com/docs/rest#queries-constraints](https://parse.com/docs/rest#queries-constraints)
 
     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("User", new
+    var results = parseClient.GetObjects<User>(new
     {
         Hometown = new Constraint(select: new
         {
@@ -107,7 +107,7 @@ Parse-for-.Net's Constraint class, based on the $select example on the following
 **Regex (Perl-based)**
 
     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-    var results = parseClient.GetObjectsWithQuery("Computer", new
+    var results = parseClient.GetObjects<Computer>(new
     {
         ManufacturerEmail = new Constraint(regex: @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b")
     });
@@ -119,11 +119,11 @@ The option 'i' specifies that the regex will be case-insensitive while 'm' speci
 should search multiple lines. More information can be found here: [https://parse.com/docs/rest#queries-strings](https://parse.com/docs/rest#queries-strings)
 
      var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
-     var results = parseClient.GetObjectsWithQuery("Computer", new
+     var results = parseClient.GetObjects<Computer>(new
      {
          ManufacturerEmail = new Constraint(regex: @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b", regexOptions: "im")
      });
 
 ## Installation
 
-Add this to your project using <a href="https://www.nuget.org/packages/Parse.Api/" target="_blank">NuGet</a>. 
+coming soon on NuGet
