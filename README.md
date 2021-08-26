@@ -13,7 +13,7 @@ Coming soon
 
 ### Parse Object Creation
 
-	Parse.ParseClient myClient = new Parse.ParseClient("myappid", "mysecretkey", "my serverurl");
+	Parse.ParseClient myClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
 	MyParseObject myParseObject = new MyParseObject("field1value", "field2value");
 	var result = myClient.CreateObject(myParseObject).Result;
 	
@@ -61,7 +61,7 @@ section of the REST API documentation.
 
 **In List**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
     var results = parseClient.GetObjects<Computer>(new
     {
         Brand = new Constraint(@in: new string[3] {"Apple", "Dell", "IBM"})
@@ -69,7 +69,7 @@ section of the REST API documentation.
 
 **Not In List**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
     var results = parseClient.GetObjects<Computer>(new
     {
         Brand = new Constraint(notIn: new string[3] {"Apple", "Dell", "IBM"})
@@ -77,7 +77,7 @@ section of the REST API documentation.
 
 **Value Does or Does Not Exist**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
     var results = parseClient.GetObjects<Computer>(new
     {
         PCIExpress = new Constraint(exists: true)
@@ -88,7 +88,7 @@ section of the REST API documentation.
 Used to perform more complex queries across multiple Parse objects. The example below was created using 
 Parse-for-.Net's Constraint class, based on the $select example on the following page: [https://parse.com/docs/rest#queries-constraints](https://parse.com/docs/rest#queries-constraints)
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
     var results = parseClient.GetObjects<User>(new
     {
         Hometown = new Constraint(select: new
@@ -106,7 +106,7 @@ Parse-for-.Net's Constraint class, based on the $select example on the following
 
 **Regex (Perl-based)**
 
-    var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+    var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
     var results = parseClient.GetObjects<Computer>(new
     {
         ManufacturerEmail = new Constraint(regex: @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b")
@@ -118,7 +118,7 @@ Note that 'i' and 'm' are the two possible values, which can also be concatenate
 The option 'i' specifies that the regex will be case-insensitive while 'm' specifies that the regex 
 should search multiple lines. More information can be found here: [https://parse.com/docs/rest#queries-strings](https://parse.com/docs/rest#queries-strings)
 
-     var parseClient = new Parse.ParseClient("myappid", "mysecretkey");
+     var parseClient = new Parse.ParseClient("myappid", "mysecretkey", "myserverurl");
      var results = parseClient.GetObjects<Computer>(new
      {
          ManufacturerEmail = new Constraint(regex: @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\b", regexOptions: "im")
