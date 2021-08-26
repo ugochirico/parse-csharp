@@ -17,7 +17,7 @@ Coming soon
 	MyParseObject myParseObject = new MyParseObject("field1value", "field2value");
 	var result = myClient.CreateObject(myParseObject).Result;
 	
-	Dictionary<String,String> allObjects = myClient.GetObjectsWithQuery("MyParseObject");
+	var allObjects = myClient.GetObjects<MyParseObject>();
     
 ### Parse File Creation
 	ParseFile file = new ParseFile("c:\path\to\file.txt");
