@@ -19,19 +19,23 @@ namespace Parse.Api
     public class ParseRestClient : IParseRestClient
     {
         public TimeSpan Timeout { get; set; }
-
         private readonly WebHeaderCollection _defaultHeaders;
 
-        public ParseRestClient(string appId, string restApiKey)
+        public ParseRestClient(string appId, string restApiKey, string serverUrl)
         {
-            if (string.IsNullOrEmpty(appId) || string.IsNullOrEmpty(restApiKey))
+            if (string.IsNullOrEmpty(appId) || string.IsNullOrEmpty(serverUrl))
             {
                 throw new ArgumentNullException();
             }
 
+            ParseUrls.BASE = serverUrl;
+
             _defaultHeaders = new WebHeaderCollection();
             _defaultHeaders.Add(ParseHeaders.APP_ID, appId);
-            _defaultHeaders.Add(ParseHeaders.REST_API_KEY, restApiKey);
+
+            if(!string.IsNullOrEmpty(restApiKey))
+                _defaultHeaders.Add(ParseHeaders.REST_API_KEY, restApiKey);
+
             Timeout = TimeSpan.FromSeconds(30);
         }
 
